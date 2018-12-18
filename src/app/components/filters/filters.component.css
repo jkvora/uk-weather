@@ -1,0 +1,18 @@
+.radio-group {
+ 
+}
+
+.radio-button {
+  margin: 5px;
+}
+
+.selected-value {
+  margin: 15px 0;
+}
+
+.optioncontainer{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}

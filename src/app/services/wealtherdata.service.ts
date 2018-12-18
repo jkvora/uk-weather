@@ -14,8 +14,10 @@ export class WealtherdataService {
 
   constructor(private http: HttpClient) { }
 
-
-
+  /**
+   * Get weather data
+   * @param options 
+   */
   getWeatherData(options: urlOptions) {
     return this.http.get(this.API_URL + options.metric+"-"+options.location+".json");
   }

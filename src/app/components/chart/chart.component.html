@@ -2,7 +2,7 @@
 
 
   <mat-form-field [(value)]="selectedCountry">
-    <mat-select placeholder="Countries" [(ngModel)]="selectedCountry" (selectionChange)="onSelectionChanged($event);">
+    <mat-select placeholder="Countries" [(ngModel)]="selectedCountry" (selectionChange)="getData();">
       <mat-option *ngFor="let item of countries" [value]="item">
         {{ item }}
       </mat-option>
@@ -10,7 +10,7 @@
   </mat-form-field>
 
 
-  <mat-radio-group class="radio-group" [(ngModel)]="selectedMetric"  [(value)]="selectedMetric" (change)="onMetricChanged($event)">
+  <mat-radio-group class="radio-group" [(ngModel)]="selectedMetric" [(value)]="selectedMetric" (change)="getData()">
     <mat-radio-button class="radio-button" *ngFor="let item of metrics" [value]="item.value">
       {{ item.text }}
     </mat-radio-button>
@@ -19,6 +19,7 @@
 </div>
 
 <div>
-  <div id="chartdiv" [style.width.%]="100" [style.height.px]="400"></div>
-									
+  <div  *ngIf="isloading" class="loader" ><img src="assets/img/loader.gif" alt="loader" /></div>
+  <div  id="chartdiv" [style.width.%]="100" [style.height.px]="400"></div>
+
 </div>

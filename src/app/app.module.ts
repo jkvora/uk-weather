@@ -8,7 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MatInputModule,MatRadioModule,MatDatepickerModule,MatSelectModule,MatToolbarModule, MatNativeDateModule} from '@angular/material';
 import { HeaderComponent } from './components/header/header.component';
-import { FiltersComponent } from './components/filters/filters.component';
+import { ChartComponent } from './components/chart/chart.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FiltersComponent
+    ChartComponent
     
   ],
   imports: [

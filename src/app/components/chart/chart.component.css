@@ -10,6 +10,14 @@
   margin: 15px 0;
 }
 
+.loader{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 100%;
+}
+
 .optioncontainer{
     align-items: center;
     display: flex;

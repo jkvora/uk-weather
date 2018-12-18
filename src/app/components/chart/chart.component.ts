@@ -11,15 +11,17 @@ import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
-  selector: "app-filters",
-  templateUrl: "./filters.component.html",
-  styleUrls: ["./filters.component.css"]
+  selector: "app-chart",
+  templateUrl: "./chart.component.html",
+  styleUrls: ["./chart.component.css"]
 })
-export class FiltersComponent implements OnInit {
+export class ChartComponent implements OnInit {
 
+  //Countries data
   countries: string[] = ["UK", "England", "Scotland", "Wales"];
   selectedCountry="UK";
 
+  //Metric Data
   selectedMetric="Tmax";
   metrics = [
     {
@@ -39,6 +41,10 @@ export class FiltersComponent implements OnInit {
     }
   ]
 
+  //Show loader
+  isloading:boolean=false;
+
+  //Chart 
   private chart: am4charts.XYChart;
 
   //UnSubscription  Object
@@ -52,28 +58,27 @@ export class FiltersComponent implements OnInit {
     this.getData();
   }
 
+  /**
+   * Fetch the data
+   */
   getData() {
+    this.isloading=true;
     let options: urlOptions = {
       metric: this.selectedMetric,
       location: this.selectedCountry
     }
     this.weatherService.getWeatherData(options).pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       console.log(res);
+      this.isloading=false;
       this.drawChart(res);
+      
     });
   }
 
-
-  onSelectionChanged($event){
-    this.getData();
-  }
-
-  
-  onMetricChanged(event){
-    console.log(event);
-    this.getData();
-  }
-
+  /**
+   * Draw chart acc. to data
+   * @param wealtherData 
+   */
   drawChart(wealtherData) {
 
     this.zone.runOutsideAngular(() => {

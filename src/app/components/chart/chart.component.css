@@ -1,6 +1,4 @@
-.radio-group {
- 
-}
+
 
 .radio-button {
   margin: 5px;
@@ -23,4 +21,19 @@
     display: flex;
     justify-content: center;
     margin: 15px;
+}
+
+
+@media (max-width:768px){
+  .radio-group {
+    display: inline-block;
+    text-align: center;
+  }
+  .optioncontainer{
+    display: initial;
+  }
+  .mat-form-field{
+    display: flex;
+    justify-content: center;
+  }
 }
